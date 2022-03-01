@@ -11,6 +11,7 @@ const searchPhone = () => {
 
 }
 
+// phone search 
 const displaySearchResult = brands => {
     const searchResult = document.getElementById('search-result')
     brands.forEach(brand => {
@@ -27,15 +28,12 @@ const displaySearchResult = brands => {
             </div>
         </div> 
         `;
-
-
         searchResult.appendChild(div);
     })
 
-    // console.log(brand);
 }
 
-
+// phone load details api call
 const loadPhoneDetails = id => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
@@ -45,6 +43,8 @@ const loadPhoneDetails = id => {
 
 }
 
+
+// phone details all
 const DisplayPhoneDetails = phone =>{
     console.log(phone.slug);
     const detailsPhone = document.getElementById('details-phone')
@@ -62,12 +62,19 @@ const DisplayPhoneDetails = phone =>{
                 <p class="card-text">DisplaySize: ${phone.mainFeatures.displaySize}</p>
                 <p class="card-text">Memory: ${phone.mainFeatures.memory}</p>
                 <p class="card-text">Storage: ${phone.mainFeatures.storage}</p>
+                <hr>
+                
+                <p class="card-text">Bluetooth: ${phone.others.Bluetooth}</p>
+                <p class="card-text">GPS: ${phone.others.GPS}</p>
+                <p class="card-text">NFC: ${phone.others.NFC}</p>
+                <p class="card-text">Radio: ${phone.others.Radio}</p>
+                <p class="card-text">USB: ${phone.others.USB}</p>
+                <p class="card-text">WLAN: ${phone.others.WLAN}</p>
                 
             </div>
         </div> 
         `;
 
-        // detailsPhone.appendChild(div);
     
     
 

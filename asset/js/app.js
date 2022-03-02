@@ -55,7 +55,7 @@ const DisplayPhoneDetails = phone =>{
         const div = document.createElement('div');
         div.classList.add('col');
         detailsPhone.innerHTML = `
-        <div class="card ">
+        <div class="card">
             <img src="${phone.image}" class="card-img-top w-50 mx-auto py-2 img-fluid" alt="...">
             <hr>
             <div class="card-body">

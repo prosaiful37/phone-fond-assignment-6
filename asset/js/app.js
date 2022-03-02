@@ -14,23 +14,29 @@ const searchPhone = () => {
 // phone search 
 const displaySearchResult = brands => {
     const searchResult = document.getElementById('search-result')
-    brands.forEach(brand => {
-        // console.log(brand);
-        const div = document.createElement('div');
-        div.classList.add('col');
-        div.innerHTML = `
-        <div class="card h-100">
-            <img  src="${brand.image}" class="card-img-top w-50 mx-auto py-5 img-fluid" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Brand: ${brand.brand}</h5>
-                <h4 class="card-title">Phone: ${brand.phone_name}</h4>
-                <button onclick="loadPhoneDetails('${brand.slug}')" class="btn btn-warning" type="button">Details</button>
-            </div>
-        </div> 
-        `;
-        searchResult.appendChild(div);
-    })
-
+    if(brands.length == 0){
+        document.getElementById('error-msg').innerText = 'Result not found';
+    }
+    else{
+        brands.forEach(brand => {
+            // console.log(brand);
+            const div = document.createElement('div');
+            div.classList.add('col');
+            div.innerHTML = `
+            <div class="card h-100">
+                <img  src="${brand.image}" class="card-img-top w-50 mx-auto py-5 img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Brand: ${brand.brand}</h5>
+                    <h4 class="card-title">Phone: ${brand.phone_name}</h4>
+                    <button onclick="loadPhoneDetails('${brand.slug}')" class="btn btn-warning" type="button">Details</button>
+                </div>
+            </div> 
+            `;
+            searchResult.appendChild(div);
+        })
+    
+    }
+   
 }
 
 // phone load details api call
@@ -74,9 +80,6 @@ const DisplayPhoneDetails = phone =>{
             </div>
         </div> 
         `;
-
-    
-    
 
 }
 

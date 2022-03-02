@@ -33,7 +33,7 @@ const displaySearchResult = brands => {
             </div> 
             `;
             searchResult.appendChild(div);
-        })
+        });
     
     }
    
@@ -45,10 +45,8 @@ const loadPhoneDetails = id => {
     fetch(url)
     .then(res => res.json())
     .then(data => DisplayPhoneDetails(data.data))
-    // console.log(data);
 
 }
-
 
 // phone details all
 const DisplayPhoneDetails = phone =>{
@@ -76,6 +74,19 @@ const DisplayPhoneDetails = phone =>{
                 <p class="card-text">Radio: ${phone.others.Radio}</p>
                 <p class="card-text">USB: ${phone.others.USB}</p>
                 <p class="card-text">WLAN: ${phone.others.WLAN}</p>
+                <hr>
+
+                <h5 class="fs-5">Sensors</h5>
+                <p class="card-text"></p>
+                <ul class="list-group">
+                    <li class="list-group-item">${phone.mainFeatures.sensors[0]}</li>
+                    <li class="list-group-item">${phone.mainFeatures.sensors[1]}</li>
+                    <li class="list-group-item">${phone.mainFeatures.sensors[2]}</li>
+                    <li class="list-group-item">${phone.mainFeatures.sensors[3]}</li>
+                    <li class="list-group-item">${phone.mainFeatures.sensors[4]}</li>
+                    <li class="list-group-item">${phone.mainFeatures.sensors[5]}</li>
+                </ul>
+                
                 
             </div>
         </div> 
